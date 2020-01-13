@@ -71,7 +71,8 @@ let removedItem = fruits.splice(pos, 1) // this is how to remove an item
 
 const array1 = [5, 12, 8, 130, 44];
 
-const found = array1.find(element => element > 10);
+
+const found = array1.find(elem => elem > 10);
 
 console.log(found);
 // expected output: 12

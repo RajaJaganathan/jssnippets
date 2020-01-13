@@ -25,7 +25,7 @@ var str = "Please locate where 'locate' occurs!";
 var pos = str.search("locate");
 
 //convert string to array
-var txt = "a,b,c,d,e"; // String
-var chars = txt.split(",");
+var txt = "abcde"; // String
+var chars = txt.split("");
 
 console.log({ chars });

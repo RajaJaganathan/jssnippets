@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Document</title>
+  <link href="./src/libs/bootstrap-4.0.0/dist/css/bootstrap.css" rel="stylesheet" />
+  <script src="https://code.jquery.com/jquery-3.4.1.slim.min.js"
+    integrity="sha384-J6qa4849blE2+poT4WnyKhv5vZF5SrPo0iEjwBvKU7imGFAV0wwj1yYfoRSJoZ+n"
+    crossorigin="anonymous"></script>
+  <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.0/dist/umd/popper.min.js"
+    integrity="sha384-Q6E9RHvbIyZFJoft+2mJbHaEWldlvI9IOYy5n3zV9zzTtmI3UksdQRVvoxMfooAo"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.4.1/js/bootstrap.min.js"
+    integrity="sha384-wfSDF2E50Y2D1uUdj0O3uMBJnjuUD4Ih7YwaYd1iqfktj0Uod8GCExl3Og8ifwB6"
+    crossorigin="anonymous"></script>
+</head>
+
+<body>
+  <div class="jumbotron text-center">
+    <h1>My First Bootstrap Page</h1>
+    <p>Resize this responsive page to see the effect!</p>
+  </div>
+
+  <div class="container">
+    <div class="row">
+      <div class="col-sm-4">
+        <h3>Column 1</h3>
+        <p>lorem</p>
+      </div>
+      <div class="col-sm-4">
+        <h3>Column 2</h3>
+        <p>Lorem ipsum dolor..</p>
+      </div>
+      <div class="col-sm-4">
+        <h3>Column 3</h3>
+        <p>Lorem ipsum dolor..</p>
+        <div class="alert alert-primary" role="alert">
+          This is a primary alert—check it out!
+        </div>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-xs-12">
+      <h3>Todos</h3>  
+      <button id="refresh">Refresh</button>
+      <ul id="todo" class="list-group">
+        <!-- <li class="list-group-item">Cras justo odio</li>
+        <li class="list-group-item">Dapibus ac facilisis in</li>
+        <li class="list-group-item">Morbi leo risus</li>
+        <li class="list-group-item">Porta ac consectetur ac</li>
+        <li class="list-group-item">Vestibulum at eros</li> -->
+      </ul>
+    </div>
+  </div>
+  
+  
+
+  </div>
+
+  
+</div>
+  <script>
+    function main() {
+      fetch('http://localhost.paypal.com:3000/todos')
+        .then(res => res.json())
+        .then(result => {
+          var list = result.map(elem => `<li class="list-group-item active">${elem.text}</li>`)
+          console.log({list});
+          document.getElementById('todo').innerHTML = list.join('')
+        })
+    }
+
+    document.getElementById('refresh').addEventListener('click', function(){
+      main();
+    });
+  
+  </script>
+</body>
+
+</html>
